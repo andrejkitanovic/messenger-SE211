@@ -17,7 +17,8 @@ function Authentication({ history, children }) {
 	}, []);
 
 	const unathenticated = () => {
-		if (!localStorage.getItem('jwToken') && history.location.pathname !== '/login') {
+		console.log(history.location.pathname)
+		if (!localStorage.getItem('jwToken') && (history.location.pathname !== '/login' && history.location.pathname !== '/register')) {
 			return history.push('/login');
 		}
 	};

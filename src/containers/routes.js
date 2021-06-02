@@ -1,14 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { Login, Register, Home } from './pages';
-import { Authentication, LoadingScreen, Notifications } from '../hoc';
+import { Authentication, LoadingScreen, 
+	// Notifications 
+} from '../hoc';
 
 const Routes = () => {
 	return (
 		<BrowserRouter>
 			<Authentication>
 				<LoadingScreen />
-				<Notifications />
+				{/* <Notifications /> */}
 				<Switch>
 					<Route path="/login" component={Login} />
 					<Route path="/register" component={Register} />

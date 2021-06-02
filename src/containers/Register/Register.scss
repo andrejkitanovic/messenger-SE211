@@ -1,0 +1,20 @@
+.register {
+	background: url('https://cdn.statically.io/img/wallpapercave.com/wp/wp2757874.gif') no-repeat center center;
+	background-size: cover;
+	min-height: 100vh;
+	max-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__title {
+		text-align: center;
+		margin: 48px 0;
+		color: #111;
+	}
+
+    &__link {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
