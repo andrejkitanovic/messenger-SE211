@@ -1,11 +1,10 @@
 import React from 'react';
 import './LoadingScreen.scss';
 
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export default function LoadingScreen(props) {
-	// const loader = useSelector((state) => state.loader);
-	const loader = false;
+	const loader = useSelector((state) => state.loader);
 
 	if (!loader) {
 		return null;

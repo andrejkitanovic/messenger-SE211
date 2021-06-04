@@ -1,6 +1,13 @@
-.form-starter {
-	width: calc(100% - 20px);
+.box-starter {
+	width: 100%;
 	max-width: 500px;
+	background-color: #fff;
+	padding: 50px 40px;
+}
+
+.box-main {
+	width: 100%;
+	max-width: 1400px;
 	background-color: #fff;
 	padding: 50px 40px;
 }
@@ -14,8 +21,8 @@
 	color: #333;
 	font-size: 18px;
 	font-weight: 700;
-    padding: 0 40px;
-    outline-color: #f13636;
+	padding: 0 40px;
+	outline-color: #f13636;
 }
 
 .form-field {
@@ -24,7 +31,7 @@
 }
 
 .form-button {
-    width: 100%;
+	width: 100%;
 	height: 70px;
 	border: none;
 	background-color: #f13636;
@@ -32,15 +39,15 @@
 	color: #fff;
 	font-size: 18px;
 	font-weight: 700;
-    padding: 0 40px;
-    cursor: pointer;
+	padding: 0 40px;
+	cursor: pointer;
 }
 
 .link {
 	color: #a9a9a9;
 	font-weight: 500;
 	text-decoration: none;
-    font-size: 17px;
-    letter-spacing: 0.02rem;
+	font-size: 17px;
+	letter-spacing: 0.02rem;
 	// padding: 15px 30px;
 }

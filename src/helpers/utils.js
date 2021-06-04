@@ -1,0 +1,9 @@
+export const removeEmptyObjects = (array) => {
+	return array.filter((value) => Object.keys(value).length !== 0);
+};
+
+export const arrayToObject = (array) => {
+	const object = {};
+	array.map((el) => (object[Object.keys(el)[0]] = Object.values(el)[0]));
+	return object;
+};

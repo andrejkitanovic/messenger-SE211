@@ -1,31 +1,62 @@
 import React from 'react';
+
 import './Login.scss';
+import { Link } from 'react-router-dom';
+
+import { useDispatch } from 'react-redux';
+import { login } from '../../store/actions';
+import { formValuesToObject } from '../../helpers';
 
 const Login = (props) => {
+	const dispatch = useDispatch();
+
+	const goToHome = () => {
+		props.history.push('/');
+	};
+
+	const loginFormHandler = (e) => {
+		e.preventDefault();
+		let body = formValuesToObject(e.target.elements);
+
+		dispatch(login(body, goToHome));
+	};
+
 	return (
-		<div className="login">
-			<form action="#" className="login__form form-starter">
-				<h1 className="login__title">Sign in</h1>
+		<div className="login" onSubmit={loginFormHandler}>
+			<form action="#" className="login__form box-starter">
+				<h1 className="login__title">Ulogujte se</h1>
 
 				<div className="login__field form-field">
-					<input className="login__field-input form-input" type="text" required placeholder="Username" />
+					<input
+						className="login__field-input form-input"
+						name="email"
+						type="text"
+						required
+						placeholder="Email / Korisnicko ime"
+					/>
 				</div>
 
 				<div className="login__field form-field">
-					<input className="login__field-input form-input" type="password" required placeholder="Password" />
+					<input
+						className="login__field-input form-input"
+						name="password"
+						type="password"
+						required
+						placeholder="Sifra"
+					/>
 					<div className="show-password fas fa-eye-slash"></div>
 				</div>
 
 				<div className="login__button">
 					<button className="form-button" type="submit">
-						Login
+						Uloguj se
 					</button>
 				</div>
 
 				<div className="login__link">
-					<a className="link" href="/register">
-						Don't have one? Create now
-					</a>
+					<Link className="link" to="/register">
+						Nemate nalog? Kreirajte novi
+					</Link>
 				</div>
 			</form>
 		</div>
