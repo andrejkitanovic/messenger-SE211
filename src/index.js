@@ -6,22 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-
-import loader from './store/reducers/loader';
-import notification from './store/reducers/notification';
-import user from './store/reducers/user';
-
-const rootReducer = combineReducers({
-	loader,
-	notification,
-	user,
-});
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
+import store from './store'
 
 ReactDOM.render(
 	<Provider store={store}>
