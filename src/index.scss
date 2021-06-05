@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
 }
 
 body {
 	margin: 0;
-	font-family: 'Ubuntu', sans-serif;
+
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -17,4 +20,14 @@ code {
 
 h1 {
 	font-size: 36px;
+}
+
+button{
+	border: none;
+	cursor: pointer;
+}
+
+input{
+	border: none;
+	outline-color: #f13636;
 }

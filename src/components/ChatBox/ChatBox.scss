@@ -1,0 +1,32 @@
+.chat-box{
+    background:#fff;
+    height: 100%;
+    margin:10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding:15px;
+
+    &__message{
+        color:#fff;
+        display: inline-block;
+        padding:10px 15px;
+        border-radius: 2px;
+        margin:5px 0;
+
+        img{
+            margin-top: 5px;
+            border-radius: 2px;
+        }
+
+        &-sended{
+            margin-left: auto;
+            background:#f13636;
+        }
+
+        &-recieved{
+            margin-right: auto;
+            background:#333;
+        }
+    }
+}

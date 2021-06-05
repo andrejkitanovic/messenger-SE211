@@ -3,10 +3,10 @@ import './LoadingScreen.scss';
 
 import { useSelector } from 'react-redux';
 
-export default function LoadingScreen(props) {
+const LoadingScreen = ({force}) => {
 	const loader = useSelector((state) => state.loader);
 
-	if (!loader) {
+	if (!loader && !force) {
 		return null;
 	}
 
@@ -19,3 +19,5 @@ export default function LoadingScreen(props) {
 		</div>
 	);
 }
+
+export default LoadingScreen;

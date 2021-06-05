@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import { withRouter } from 'react-router-dom';
 
 function Authentication({ history, children }) {
@@ -17,8 +18,11 @@ function Authentication({ history, children }) {
 	}, []);
 
 	const unathenticated = () => {
-		console.log(history.location.pathname)
-		if (!localStorage.getItem('jwToken') && (history.location.pathname !== '/login' && history.location.pathname !== '/register')) {
+		if (
+			!localStorage.getItem('jwToken') &&
+			history.location.pathname !== '/login' &&
+			history.location.pathname !== '/register'
+		) {
 			return history.push('/login');
 		}
 	};

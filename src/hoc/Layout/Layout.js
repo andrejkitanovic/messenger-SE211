@@ -1,14 +1,14 @@
 import React from 'react';
+
 import './Layout.scss';
 
 import { withRouter } from 'react-router-dom';
 
-const Layout = ({ children, history }) => {
+const Layout = ({ children }) => {
 	return (
-		<div className="Layout">
-			<main>
-			</main>
-		</div>
+		<main>
+			<div className="layout">{children}</div>
+		</main>
 	);
 };
 
