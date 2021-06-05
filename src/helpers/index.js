@@ -1,4 +1,4 @@
-import { extractFormValues, formValuesToObject } from './form';
+import { extractFormValues, formValuesToObject, clearEnteredValues } from './form';
 import { removeEmptyObjects, arrayToObject } from './utils';
 
-export { extractFormValues, removeEmptyObjects, arrayToObject, formValuesToObject };
+export { extractFormValues, removeEmptyObjects, arrayToObject, formValuesToObject, clearEnteredValues };

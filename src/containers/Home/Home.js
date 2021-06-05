@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 import './Home.scss';
-import { Logout, User, Me, ChatWith, ChatBox, ChatInput } from '../../components';
+import { Logout, Users, Me, ChatWith, ChatBox, ChatInput } from '../../components';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getOtherUsers, getCurrentUser } from '../../store/actions';
+import { getOtherUsers, getCurrentUser, getMessages, sendMessage } from '../../store/actions';
 
 const Home = (props) => {
 	const dispatch = useDispatch();
-	const { me, otherUsers } = useSelector((state) => state.user);
+	const { me } = useSelector((state) => state.user);
+	const previousUserId = useSelector((state) => state.message.user);
 
 	const [selectedUser, setSelectedUser] = useState(null);
 
@@ -22,7 +23,16 @@ const Home = (props) => {
 	}, []);
 
 	const setSelectedUserHandler = (user) => {
-		setSelectedUser(user);
+		if (previousUserId !== user._id) {
+			setSelectedUser(user);
+			dispatch(getMessages(user._id));
+		}
+	};
+
+	const sendMessageToUser = (message) => {
+		const idOfUser = selectedUser._id;
+
+		dispatch(sendMessage(idOfUser, message));
 	};
 
 	return (
@@ -33,16 +43,15 @@ const Home = (props) => {
 			</div>
 			<div className="home__main">
 				<div className="home__list">
-					{otherUsers &&
-						otherUsers.map((user) => <User data={user} setUser={setSelectedUserHandler} key={user.username} />)}
+						<Users setUser={setSelectedUserHandler}/>
 				</div>
 
 				<div className="home__chat">
 					{selectedUser && (
 						<>
 							<ChatWith label={selectedUser.username} />
-							<ChatBox />
-							<ChatInput />
+							<ChatBox myId={me._id} />
+							<ChatInput sendMessage={sendMessageToUser} />
 						</>
 					)}
 				</div>

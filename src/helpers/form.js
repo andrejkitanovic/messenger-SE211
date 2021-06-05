@@ -4,6 +4,10 @@ export const extractFormValues = (elements) => {
 	return [...elements].map((el) => el.value && { [el.name]: el.value });
 };
 
+export const clearEnteredValues = (elements) => {
+	return [...elements].map((el) => el.value = '');
+}
+
 export const formValuesToObject = (elements) => {
 	let object = extractFormValues(elements);
 	object = removeEmptyObjects(object);

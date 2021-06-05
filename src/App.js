@@ -1,10 +1,10 @@
 import './App.scss';
-import Main from './containers/routes';
+import Routes from './containers/routes';
 
 function App() {
 	return (
 		<div className="App">
-			<Main />
+			<Routes />
 		</div>
 	);
 }

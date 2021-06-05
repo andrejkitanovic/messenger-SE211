@@ -1,27 +1,26 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-	me: null,
-	otherUsers: null,
-	activeUsers: [],
+	user: null,
+	messages: [],
 };
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		case actionTypes.SET_USER:
+		case actionTypes.SET_MESSAGES:
 			return {
 				...state,
-				me: action.payload,
+				messages: action.payload,
 			};
-		case actionTypes.SET_OTHER_USERS:
+		case actionTypes.SET_CHAT_WITH:
 			return {
 				...state,
-				otherUsers: action.payload,
+				user: action.payload,
 			};
-		case actionTypes.SET_ACTIVE_USERS:
+		case actionTypes.APPEND_MESSAGE:
 			return {
 				...state,
-				activeUsers: action.payload,
+				messages: [...state.messages, action.payload],
 			};
 		default:
 			return state;

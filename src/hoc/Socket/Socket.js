@@ -1,24 +1,43 @@
 import React, { useEffect, useState } from 'react';
 
+import { setActiveUsers, appendMessage } from '../../store/actions';
 import { baseURL } from '../../api/axiosInstance';
 import { useSnackbar } from 'notistack';
-import { useSelector } from 'react-redux';
+import {
+	// useSelector,
+	useDispatch,
+} from 'react-redux';
 import socketIO from 'socket.io-client';
 
+let socket = null;
+
 const Socket = ({ children }) => {
-	const [connection, setConnection] = useState(null);
+	const dispatch = useDispatch();
+
+	const [message, setMessage] = useState(null);
 	const { enqueueSnackbar } = useSnackbar();
-	const { me } = useSelector((state) => state.user);
+	// const { me } = useSelector((state) => state.user);
 
 	useEffect(() => {
-		const socket = socketIO(baseURL, {
+		socket = socketIO(baseURL, {
 			query: {
-				user: me && me.username,
+				user: localStorage.getItem('jwToken'),
 			},
 		});
 
 		socket.on('info', (data) => {
-			setConnection(data);
+			if (data.message) {
+				setMessage(data.message);
+			}
+			if (data.activeUsers) {
+				dispatch(setActiveUsers(data.activeUsers));
+			}
+		});
+
+		socket.on('message', (data) => {
+			if (data.message) {
+				dispatch(appendMessage(data.message));
+			}
 		});
 
 		return () => {
@@ -30,8 +49,8 @@ const Socket = ({ children }) => {
 	}, []);
 
 	useEffect(() => {
-		if (connection) {
-			enqueueSnackbar(connection, {
+		if (message) {
+			enqueueSnackbar(message, {
 				variant: 'info',
 				autoHideDuration: 2500,
 				anchorOrigin: {
@@ -40,9 +59,10 @@ const Socket = ({ children }) => {
 				},
 			});
 		}
-	}, [connection, enqueueSnackbar]);
+	}, [message, enqueueSnackbar]);
 
 	return <>{children}</>;
 };
 
+export { socket };
 export default Socket;

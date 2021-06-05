@@ -18,6 +18,13 @@ export const setOtherUsers = (payload) => {
 	};
 };
 
+export const setActiveUsers = (payload) => {
+	return {
+		type: actionTypes.SET_ACTIVE_USERS,
+		payload,
+	};
+};
+
 // export const setPasswordError = (payload) => {
 // 	return {
 // 		type: actionTypes.SET_PASSWORD_ERR,

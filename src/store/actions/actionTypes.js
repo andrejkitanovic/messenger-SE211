@@ -6,5 +6,8 @@ export const ERROR_NOTIFICATION = 'ERROR_NOTIFICATION';
 
 export const SET_USER = 'SET_USER';
 export const SET_OTHER_USERS = 'SET_OTHER_USERS';
-// export const SET_USERNAME_ERR = 'SET_USERNAME_ERR';
-// export const SET_PASSWORD_ERR = 'SET_PASSWORD_ERR';
+export const SET_ACTIVE_USERS = 'SET_ACTIVE_USERS';
+
+export const SET_MESSAGES = 'SET_MESSAGES';
+export const SET_CHAT_WITH = 'SET_CHAT_WITH';
+export const APPEND_MESSAGE = 'APPEND_MESSAGE';
