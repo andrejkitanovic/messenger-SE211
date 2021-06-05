@@ -24,9 +24,9 @@ const Socket = ({ children }) => {
 		return () => {
 			socket.disconnect();
 			socket.off();
-        };
-        
-        //eslint-disable-next-line
+		};
+
+		//eslint-disable-next-line
 	}, []);
 
 	useEffect(() => {

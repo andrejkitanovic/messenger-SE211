@@ -1,4 +1,4 @@
-import {lazy} from 'react'
+import { lazy } from 'react';
 
 const Home = lazy(() => import('../Home/Home'));
 const Login = lazy(() => import('../Login/Login'));

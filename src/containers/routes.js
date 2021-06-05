@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React, { Suspense } from 'react';
 
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { Login, Register, Home } from './pages';
@@ -7,7 +7,7 @@ import { SnackbarProvider } from 'notistack';
 
 const Routes = () => {
 	return (
-		<Suspense fallback={<LoadingScreen force/>}>
+		<Suspense fallback={<LoadingScreen force />}>
 			<BrowserRouter>
 				<SnackbarProvider
 					anchorOrigin={{
