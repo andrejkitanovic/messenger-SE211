@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 //Local
-const baseURL = 'http://localhost:8081/';
-// const baseURL = 'https://secure-beyond-31419.herokuapp.com/';
+// const baseURL = 'http://localhost:8081/';
+const baseURL = 'https://secure-beyond-31419.herokuapp.com/';
 
 const instance = axios.create({
 	baseURL: `${baseURL}api/`,
