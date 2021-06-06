@@ -37,7 +37,7 @@ export const getMessages = (id) => {
 				dispatch(finishLoading());
 			})
 			.catch(({ response }) => {
-				dispatch(errorsNotification(response.data.message));
+				// dispatch(errorsNotification(response.data.message));
 				dispatch(finishLoading());
 			});
 	};

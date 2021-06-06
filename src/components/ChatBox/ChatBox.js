@@ -7,7 +7,10 @@ import dayjs from 'dayjs';
 const ChatBox = () => {
 	const { messages, user } = useSelector((state) => state.message);
 
-	document.getElementById('chat').scrollTo(0,document.getElementById('chat').body.scrollHeight)
+	if(document.getElementById('chat')){
+		document.getElementById('chat').scrollTo(0,document.getElementById('chat').innerHeight)
+	}
+	
 
 	return (
 		<div className="chat-box" id="chat">

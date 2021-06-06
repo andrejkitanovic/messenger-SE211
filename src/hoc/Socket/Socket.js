@@ -3,10 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { setActiveUsers, appendMessage } from '../../store/actions';
 import { baseURL } from '../../api/axiosInstance';
 import { useSnackbar } from 'notistack';
-import {
-	useSelector,
-	useDispatch,
-} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import socketIO from 'socket.io-client';
 
 let socket = null;
@@ -36,6 +33,8 @@ const Socket = ({ children }) => {
 		});
 
 		socket.on('message', (data) => {
+			console.log(data.message.from);
+			console.log(currentChat);
 			if (data.message && data.message.from === currentChat) {
 				dispatch(appendMessage(data.message));
 			}
@@ -45,9 +44,7 @@ const Socket = ({ children }) => {
 			socket.disconnect();
 			socket.off();
 		};
-
-		//eslint-disable-next-line
-	}, []);
+	}, [currentChat, dispatch]);
 
 	useEffect(() => {
 		if (message) {
