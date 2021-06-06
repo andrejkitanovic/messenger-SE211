@@ -4,7 +4,7 @@ import { setActiveUsers, appendMessage } from '../../store/actions';
 import { baseURL } from '../../api/axiosInstance';
 import { useSnackbar } from 'notistack';
 import {
-	// useSelector,
+	useSelector,
 	useDispatch,
 } from 'react-redux';
 import socketIO from 'socket.io-client';
@@ -17,6 +17,7 @@ const Socket = ({ children }) => {
 	const [message, setMessage] = useState(null);
 	const { enqueueSnackbar } = useSnackbar();
 	// const { me } = useSelector((state) => state.user);
+	const currentChat = useSelector((state) => state.message.user);
 
 	useEffect(() => {
 		socket = socketIO(baseURL, {
@@ -35,7 +36,7 @@ const Socket = ({ children }) => {
 		});
 
 		socket.on('message', (data) => {
-			if (data.message) {
+			if (data.message && data.message.from === currentChat) {
 				dispatch(appendMessage(data.message));
 			}
 		});

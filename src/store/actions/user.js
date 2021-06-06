@@ -25,20 +25,6 @@ export const setActiveUsers = (payload) => {
 	};
 };
 
-// export const setPasswordError = (payload) => {
-// 	return {
-// 		type: actionTypes.SET_PASSWORD_ERR,
-// 		payload,
-// 	};
-// };
-
-// export const setUsernameError = (payload) => {
-// 	return {
-// 		type: actionTypes.SET_USERNAME_ERR,
-// 		payload,
-// 	};
-// };
-
 export const login = (object, callback) => {
 	return (dispatch) => {
 		dispatch(startLoading());
@@ -64,8 +50,6 @@ export const register = (object, callback) => {
 		axios
 			.post('auth/register', object)
 			.then(({ data }) => {
-				// localStorage.setItem('jwToken', response.data.token);
-				// dispatch(getCurrentUser());
 				dispatch(successNotification(data.message));
 				dispatch(finishLoading());
 				callback();
@@ -77,25 +61,6 @@ export const register = (object, callback) => {
 	};
 };
 
-// export const updateUser = (userId, username, type, email, password) => {
-// 	return (dispatch) => {
-// 		dispatch(startLoading());
-// 		const id = localStorage.getItem('id');
-// 		axios
-// 			.post(`user/change/${userId}`, { id, username, type, email, password })
-// 			.then(({ data }) => {
-// 				dispatch(setOtherUsers(data.data));
-// 				dispatch(successNotification(data.message));
-// 				dispatch(finishLoading());
-// 			})
-// 			.catch((error) => {
-// 				dispatch(errorsNotification(error.response.data.message));
-// 				dispatch(finishLoading());
-// 				return false;
-// 			});
-// 	};
-// };
-
 export const getOtherUsers = () => {
 	return (dispatch) => {
 		dispatch(startLoading());
@@ -106,7 +71,6 @@ export const getOtherUsers = () => {
 				dispatch(finishLoading());
 			})
 			.catch(({ response }) => {
-				// dispatch(errorsNotification(response.data.message));
 				dispatch(finishLoading());
 			});
 	};
@@ -122,44 +86,7 @@ export const getCurrentUser = () => {
 				dispatch(finishLoading());
 			})
 			.catch(({ response }) => {
-				// dispatch(errorsNotification(response.data.message));
 				dispatch(finishLoading());
 			});
 	};
 };
-
-// export const deleteUser = (id) => {
-// 	return (dispatch) => {
-// 		dispatch(startLoading());
-// 		axios
-// 			.delete(`user/${id}/${localStorage.getItem('id')}`)
-// 			.then(({ data }) => {
-// 				dispatch(setOtherUsers(data.data));
-// 				dispatch(successNotification(data.message));
-// 				dispatch(finishLoading());
-// 			})
-// 			.catch((error) => {
-// 				dispatch(errorsNotification(error.response.data.message));
-// 				dispatch(finishLoading());
-// 			});
-// 	};
-// };
-
-// export const editUserAccess = (userId, access) => {
-// 	return (dispatch) => {
-// 		dispatch(startLoading());
-// 		const id = localStorage.getItem('id');
-// 		axios
-// 			.post(`user/access/${userId}`, { id, access })
-// 			.then(({ data }) => {
-// 				dispatch(setOtherUsers(data.data));
-// 				dispatch(successNotification(data.message));
-// 				dispatch(finishLoading());
-// 			})
-// 			.catch((error) => {
-// 				dispatch(errorsNotification(error.response.data.message));
-// 				dispatch(finishLoading());
-// 				return false;
-// 			});
-// 	};
-// };

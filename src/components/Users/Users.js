@@ -12,7 +12,6 @@ const User = ({ setUser }) => {
 			{otherUsers &&
 				otherUsers.map((user) => {
 					let isActive = activeUsers.some((check) => check.user === user._id)
-					console.log(activeUsers)
 					return (
 						<div className="user" onClick={() => setUser(user)}>
 							<div className={`user__icon ${isActive ? 'active' : ''}`}>
