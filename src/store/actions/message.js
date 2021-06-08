@@ -43,13 +43,13 @@ export const getMessages = (id) => {
 	};
 };
 
-export const sendMessage = (id, message) => {
+export const sendMessage = (id, data) => {
 	return (dispatch) => {
 		axios
-			.post(`message?user=${id}`, { message })
+			.post(`message?user=${id}`, data, { 'Content-Type': 'multipart/form-data' })
 			.then(({ data }) => {
 				dispatch(appendMessage(data.data));
-				socket.emit('message', (data.data))
+				socket.emit('message', data.data);
 			})
 			.catch(({ response }) => {
 				dispatch(errorsNotification(response.data.message));

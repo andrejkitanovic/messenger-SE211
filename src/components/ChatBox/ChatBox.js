@@ -3,14 +3,14 @@ import React from 'react';
 import './ChatBox.scss';
 import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
+import {baseURL} from '../../api/axiosInstance';
 
 const ChatBox = () => {
 	const { messages, user } = useSelector((state) => state.message);
 
-	if(document.getElementById('chat')){
-		document.getElementById('chat').scrollTo(0,document.getElementById('chat').innerHeight)
+	if (document.getElementById('chat')) {
+		document.getElementById('chat').scrollTo(0, document.getElementById('chat').clientHeight);
 	}
-	
 
 	return (
 		<div className="chat-box" id="chat">
@@ -23,6 +23,11 @@ const ChatBox = () => {
 						>
 							<div className={`chat-box__message-container `}>
 								<p>{data.message}</p>
+								{data.file && (
+									<a href={baseURL + data.file} className={`chat-box__message-file `}>
+										<p>{data.file.split('/')[1]}</p>
+									</a>
+								)}
 							</div>
 
 							<p className="chat-box__time">{dayjs(new Date(data.createdAt)).format('HH:mm')}</p>

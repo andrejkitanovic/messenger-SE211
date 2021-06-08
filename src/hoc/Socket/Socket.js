@@ -33,8 +33,6 @@ const Socket = ({ children }) => {
 		});
 
 		socket.on('message', (data) => {
-			console.log(data.message.from);
-			console.log(currentChat);
 			if (data.message && data.message.from === currentChat) {
 				dispatch(appendMessage(data.message));
 			}

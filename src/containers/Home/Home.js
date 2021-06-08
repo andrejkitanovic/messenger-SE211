@@ -29,10 +29,10 @@ const Home = (props) => {
 		}
 	};
 
-	const sendMessageToUser = (message) => {
+	const sendMessageToUser = (data) => {
 		const idOfUser = selectedUser._id;
 
-		dispatch(sendMessage(idOfUser, message));
+		dispatch(sendMessage(idOfUser, data));
 	};
 
 	return (

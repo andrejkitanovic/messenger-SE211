@@ -17,6 +17,7 @@
 	}
 
 	&__message {
+		margin-bottom: 5px;
 		&-sended {
 			text-align: right;
 			#{$parent}__message-container {
@@ -38,14 +39,29 @@
 	&__message-container {
 		color: #fff;
 		display: inline-block;
+		height: auto;
+		max-width: 60%;
 		padding: 10px 15px;
-		border-radius: 2px;
+		border-radius: 10px;
 		margin: 5px 0;
+
+		p {
+			word-break: break-word;
+		}
 
 		img {
 			margin-top: 5px;
 			border-radius: 2px;
 		}
+	}
+
+	&__message-file {
+		display: block;
+		padding: 15px 30px 15px 15px;
+		margin-top: 10px;
+		background: #fff;
+		color: black;
+		border-radius: 5px;
 	}
 
 	&__time {
