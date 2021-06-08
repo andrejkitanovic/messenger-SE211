@@ -8,7 +8,7 @@ import { getOtherUsers, getCurrentUser, getMessages, sendMessage } from '../../s
 
 const Home = (props) => {
 	const dispatch = useDispatch();
-	const { me } = useSelector((state) => state.user);
+	const { me, activeUsers } = useSelector((state) => state.user);
 	const previousUserId = useSelector((state) => state.message.user);
 
 	const [selectedUser, setSelectedUser] = useState(null);
@@ -43,7 +43,7 @@ const Home = (props) => {
 			</div>
 			<div className="home__main">
 				<div className="home__list">
-						<Users setUser={setSelectedUserHandler}/>
+					<Users setUser={setSelectedUserHandler} />
 				</div>
 
 				<div className="home__chat">
@@ -55,6 +55,9 @@ const Home = (props) => {
 						</>
 					)}
 				</div>
+			</div>
+			<div className="home__bottom">
+				{activeUsers.length} Live Users
 			</div>
 		</div>
 	);
