@@ -7,19 +7,19 @@ import { SnackbarProvider } from 'notistack';
 
 const Routes = () => {
 	return (
-		<Suspense fallback={<LoadingScreen force />}>
-			<BrowserRouter>
-				<SnackbarProvider
-					anchorOrigin={{
-						vertical: 'top',
-						horizontal: 'right',
-					}}
-					maxSnack={2}
-				>
-					<Authentication>
-						<LoadingScreen />
-						<Notifications />
-						<Layout>
+		<BrowserRouter>
+			<SnackbarProvider
+				anchorOrigin={{
+					vertical: 'top',
+					horizontal: 'right',
+				}}
+				maxSnack={2}
+			>
+				<Authentication>
+					<LoadingScreen />
+					<Notifications />
+					<Layout>
+						<Suspense fallback={<LoadingScreen force />}>
 							<Switch>
 								<Route path="/login" component={Login} />
 								<Route path="/register" component={Register} />
@@ -29,11 +29,11 @@ const Routes = () => {
 
 								<Redirect to="/" />
 							</Switch>
-						</Layout>
-					</Authentication>
-				</SnackbarProvider>
-			</BrowserRouter>
-		</Suspense>
+						</Suspense>
+					</Layout>
+				</Authentication>
+			</SnackbarProvider>
+		</BrowserRouter>
 	);
 };
 
