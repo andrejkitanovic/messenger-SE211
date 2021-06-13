@@ -1,13 +1,4 @@
-// import { render, screen } from '@testing-library/react';
-// import App from './App';
-
 import { arrayToObject, removeEmptyObjects, objectIntoFormData, formatValue } from './helpers';
-
-// test('renders learn react link', () => {
-// 	render(<App />);
-// 	const linkElement = screen.getByText(/learn react/i);
-// 	expect(linkElement).toBeInTheDocument();
-// });
 
 test('testing Array To Object function', () => {
 	const array = [{ name: 'Andrej' }, { surname: 'Kitanovic' }];
