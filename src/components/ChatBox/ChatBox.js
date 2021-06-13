@@ -3,7 +3,7 @@ import React from 'react';
 import './ChatBox.scss';
 import { useSelector } from 'react-redux';
 import dayjs from 'dayjs';
-import {baseURL} from '../../api/axiosInstance';
+import { baseURL } from '../../api/axiosInstance';
 
 const ChatBox = () => {
 	const { messages, user } = useSelector((state) => state.message);
@@ -38,4 +38,4 @@ const ChatBox = () => {
 	);
 };
 
-export default ChatBox;
+export default React.memo(ChatBox);

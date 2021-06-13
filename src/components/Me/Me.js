@@ -22,4 +22,4 @@ const Me = ({ data }) => {
 	);
 };
 
-export default Me;
+export default React.memo(Me);

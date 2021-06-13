@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 
 import './Home.scss';
 import { Logout, Users, Me, ChatWith, ChatBox, ChatInput } from '../../components';
@@ -35,6 +35,8 @@ const Home = (props) => {
 		dispatch(sendMessage(idOfUser, data));
 	};
 
+	const numberOfActiveUsers = useMemo(() => activeUsers.length, [activeUsers]);
+
 	return (
 		<div className="home box-main">
 			<div className="home__top">
@@ -57,7 +59,7 @@ const Home = (props) => {
 				</div>
 			</div>
 			<div className="home__bottom">
-				{activeUsers.length} Live Users
+				{numberOfActiveUsers} Live User{numberOfActiveUsers > 1 ? 's' : ''}
 			</div>
 		</div>
 	);

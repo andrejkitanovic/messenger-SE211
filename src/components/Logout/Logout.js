@@ -20,4 +20,4 @@ const Logout = (props) => {
 	);
 };
 
-export default withRouter(Logout);
+export default React.memo(withRouter(Logout));

@@ -6,4 +6,4 @@ const ChatWith = ({ label }) => {
 	return <div className="chat-with">{label}</div>;
 };
 
-export default ChatWith;
+export default React.memo(ChatWith);

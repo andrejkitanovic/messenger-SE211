@@ -26,7 +26,14 @@ const Register = (props) => {
 			<h1 className="register__title">Kreiraj nalog</h1>
 
 			<div className="register__field form-field">
-				<input className="register__field-input form-input" name="firstname" type="text" required placeholder="Ime" />
+				<input
+					className="register__field-input form-input"
+					name="firstname"
+					type="text"
+					required
+					min="2"
+					placeholder="Ime"
+				/>
 			</div>
 
 			<div className="register__field form-field">
@@ -35,6 +42,7 @@ const Register = (props) => {
 					name="lastname"
 					type="text"
 					required
+					min="2"
 					placeholder="Prezime"
 				/>
 			</div>
@@ -44,13 +52,21 @@ const Register = (props) => {
 					className="register__field-input form-input"
 					name="username"
 					type="text"
+					min="3"
 					required
 					placeholder="Korisnicko ime"
 				/>
 			</div>
 
 			<div className="register__field form-field">
-				<input className="register__field-input form-input" name="email" type="text" required placeholder="Email" />
+				<input
+					className="register__field-input form-input"
+					name="email"
+					type="text"
+					required
+					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+					placeholder="Email"
+				/>
 			</div>
 
 			<div className="register__field form-field">
@@ -59,6 +75,7 @@ const Register = (props) => {
 					name="password"
 					type="password"
 					required
+					min="6"
 					placeholder="Sifra"
 				/>
 				<div className="show-password fas fa-eye-slash"></div>

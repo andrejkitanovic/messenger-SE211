@@ -29,6 +29,6 @@ const User = ({ setUser }) => {
 	);
 };
 
-export default User;
+export default React.memo(User);
 
 

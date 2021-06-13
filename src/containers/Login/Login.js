@@ -31,6 +31,7 @@ const Login = (props) => {
 					name="email"
 					type="text"
 					required
+					min="3"
 					placeholder="Email / Korisnicko ime"
 				/>
 			</div>
