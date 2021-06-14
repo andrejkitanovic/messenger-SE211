@@ -30,3 +30,11 @@ export const formatValue = (element) => {
 		return { [element.name]: element.value };
 	}
 };
+
+export const displayErrorMessage = (el,message) => {
+	el.target.setCustomValidity(message)
+}
+
+export const resetErrorMessage = (el) => {
+	el.target.setCustomValidity('');
+}

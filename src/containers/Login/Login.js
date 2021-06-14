@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/actions';
-import { formValuesToObject } from '../../helpers';
+import { formValuesToObject, displayErrorMessage, resetErrorMessage } from '../../helpers';
 
 const Login = (props) => {
 	const dispatch = useDispatch();
@@ -31,13 +31,22 @@ const Login = (props) => {
 					name="email"
 					type="text"
 					required
-					min="3"
+					onInput={resetErrorMessage}
+					onInvalid={(e) => displayErrorMessage(e, 'Korisnicko ime je obavezno polje')}
 					placeholder="Email / Korisnicko ime"
 				/>
 			</div>
 
 			<div className="login__field form-field">
-				<input className="login__field-input form-input" name="password" type="password" required placeholder="Sifra" />
+				<input
+					className="login__field-input form-input"
+					name="password"
+					type="password"
+					required
+					onInput={resetErrorMessage}
+					onInvalid={(e) => displayErrorMessage(e, 'Sifra je obavezno polje')}
+					placeholder="Sifra"
+				/>
 				<div className="show-password fas fa-eye-slash"></div>
 			</div>
 

@@ -1,4 +1,12 @@
-import { extractFormValues, formValuesToObject, clearEnteredValues, objectIntoFormData, formatValue } from './form';
+import {
+	extractFormValues,
+	formValuesToObject,
+	clearEnteredValues,
+	objectIntoFormData,
+	formatValue,
+	displayErrorMessage,
+	resetErrorMessage
+} from './form';
 import { removeEmptyObjects, arrayToObject } from './utils';
 
 export {
@@ -9,4 +17,6 @@ export {
 	clearEnteredValues,
 	objectIntoFormData,
 	formatValue,
+	displayErrorMessage,
+	resetErrorMessage
 };

@@ -9,7 +9,7 @@ const ChatBox = () => {
 	const { messages, user } = useSelector((state) => state.message);
 
 	if (document.getElementById('chat')) {
-		document.getElementById('chat').scrollTop(document.getElementById('chat').scrollHeight);
+		document.getElementById('chat').scrollTop = document.getElementById('chat').scrollHeight;
 	}
 
 	return (

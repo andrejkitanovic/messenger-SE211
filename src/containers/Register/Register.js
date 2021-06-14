@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { register } from '../../store/actions';
-import { formValuesToObject } from '../../helpers';
+import { formValuesToObject, displayErrorMessage, resetErrorMessage } from '../../helpers';
 
 const Register = (props) => {
 	const dispatch = useDispatch();
@@ -31,7 +31,9 @@ const Register = (props) => {
 					name="firstname"
 					type="text"
 					required
-					min="2"
+					minLength={3}
+					onInput={resetErrorMessage}
+					onInvalid={(e) => displayErrorMessage(e, 'Ime mora da ima makar 2 karaktera')}
 					placeholder="Ime"
 				/>
 			</div>
@@ -42,7 +44,9 @@ const Register = (props) => {
 					name="lastname"
 					type="text"
 					required
-					min="2"
+					minLength={2}
+					onInput={resetErrorMessage}
+					onInvalid={(e) => displayErrorMessage(e, 'Prezime mora da ima makar 2 karaktera')}
 					placeholder="Prezime"
 				/>
 			</div>
@@ -52,7 +56,9 @@ const Register = (props) => {
 					className="register__field-input form-input"
 					name="username"
 					type="text"
-					min="3"
+					minLength={3}
+					onInput={resetErrorMessage}
+					onInvalid={(e) => displayErrorMessage(e, 'Korisnicko ime mora da ima makar 3 karaktera')}
 					required
 					placeholder="Korisnicko ime"
 				/>
@@ -64,6 +70,8 @@ const Register = (props) => {
 					name="email"
 					type="text"
 					required
+					onInput={resetErrorMessage}
+					onInvalid={(e) => displayErrorMessage(e, 'Unesite validan format email adrese')}
 					pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 					placeholder="Email"
 				/>
@@ -75,7 +83,9 @@ const Register = (props) => {
 					name="password"
 					type="password"
 					required
-					min="6"
+					minLength={6}
+					onInput={resetErrorMessage}
+					onInvalid={(e) => displayErrorMessage(e, 'Sifra mora da ima makar 6 karaktera')}
 					placeholder="Sifra"
 				/>
 				<div className="show-password fas fa-eye-slash"></div>
